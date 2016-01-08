@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+WD=`pwd`
+BASEDIR=$(dirname $0)
+"$BASEDIR/create_dialog"
+python "$WD/main.py"

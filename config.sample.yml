@@ -1,0 +1,4 @@
+watson-dialog:
+  url: https://gateway.watsonplatform.net/dialog/api
+  user: user
+  password: password

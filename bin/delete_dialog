@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+WD=`pwd`
+FILE_DIALOG_ID="$WD/dialog_id.txt"
+FILE_CONFIG="$WD/config.yml"
+user=`awk '/user/ {print $2;}' $FILE_CONFIG`
+password=`awk '/password/ {print $2;}' $FILE_CONFIG`
+dialog_id=$(head -n 1 "$FILE_DIALOG_ID")
+curl -u "$user":"$password" \
+  -X DELETE \
+  "https://gateway.watsonplatform.net/dialog/api/v1/dialogs/$dialog_id"
+rm "$FILE_DIALOG_ID"
+echo "Dialog has been deleted"

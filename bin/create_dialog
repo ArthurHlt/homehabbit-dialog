@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+WD=`pwd`
+FILE_DIALOG_ID="$WD/dialog_id.txt"
+if [ -f "$FILE_DIALOG_ID" ]
+then
+    echo "Dialog already created"
+    exit 0
+fi
+FILE_CONFIG="$WD/config.yml"
+user=`awk '/user/ {print $2;}' $FILE_CONFIG`
+password=`awk '/password/ {print $2;}' $FILE_CONFIG`
+curl -u "$user":"$password" \
+  -X POST \
+  --form file="@${WD}/dialogs/homehabbit.xml" \
+  --form name=homehabbit-dialog \
+  "https://gateway.watsonplatform.net/dialog/api/v1/dialogs" \
+  | sed -n 's/{"dialog_id": "\(.*\)"}/\1/p' > "$FILE_DIALOG_ID"
+
+echo "Dialog has been send and created"
