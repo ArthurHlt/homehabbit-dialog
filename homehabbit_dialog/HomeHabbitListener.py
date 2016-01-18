@@ -13,6 +13,9 @@ class HomeHabbitListener(SttWatsonAbstractListener):
         print "Hypothesis: {0}".format(hypothesis)
         self.lock = True
         resp = self.watsonDialogClient.converse(hypothesis[0]['transcript'])
+        print "Your profile:"
+        for name, value in self.watsonDialogClient.get_profile().get_data().iteritems():
+            print "\t" + name + ": " + value
         self.watsonTts.play(resp.response)
         self.lock = False
 
