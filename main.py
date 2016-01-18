@@ -1,44 +1,28 @@
-import requests
-from config.Config import Config
+from tts_watson.TtsWatson import TtsWatson
+from dialog_watson_client.Client import Client
+from stt_watson.SttWatson import SttWatson
+from homehabbit_dialog.HomeHabbitListener import HomeHabbitListener
+import anyconfig
+import bunch
 
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+def main():
+    conf = anyconfig.load('config.yml')
+    bconf = bunch.bunchify(conf)
+    print bconf['watson-dialog'].user
+    watsonDialogClient = Client(bconf['watson-dialog'].user, bconf['watson-dialog'].password, "dialogs/homehabbit.xml",
+                                "homehabbit")
+    ttsWatson = TtsWatson(bconf['watson-tts'].user, bconf['watson-tts'].password, bconf['watson-tts'].voice)
+    homeHabbitListener = HomeHabbitListener(watsonDialogClient, ttsWatson)
+    resp = watsonDialogClient.start_dialog()
+    ttsWatson.play(resp.response)
+
+    sttWatson = SttWatson(bconf['watson-stt'].user, bconf['watson-stt'].password, model=bconf['watson-stt'].model,
+                          rate=bconf['watson-stt']['audio-rate'],
+                          chunk=bconf['watson-stt']['audio-chunk'],
+                          channels=1)
+    sttWatson.addListener(homeHabbitListener)
+    sttWatson.run()
 
 
-watsonConfig = Config.Instance().getWatsonConfig()
-url = watsonConfig["url"]
-user = watsonConfig["user"]
-password = watsonConfig["password"]
-dialogIdFile = open('dialog_id.txt', 'r')
-dialogId = dialogIdFile.readline()
-dialogIdFile.close()
-
-resp = requests.post(url + "/v1/dialogs/" + dialogId + "/conversation", data={
-    "input": ""
-}, auth=(user, password))
-
-jsonResp = resp.json()
-clientId = jsonResp["client_id"]
-conversationId = jsonResp["conversation_id"]
-print ''
-print bcolors.WARNING + "Watson: " + bcolors.OKBLUE + "\n".join(jsonResp["response"]) + bcolors.ENDC
-
-while True:
-    userResponse = raw_input(bcolors.WARNING + "You: " + bcolors.OKGREEN)
-    resp = requests.post(url + "/v1/dialogs/" + dialogId + "/conversation", data={
-        "client_id": clientId,
-        "conversation_id": conversationId,
-        "input": userResponse
-    }, auth=(user, password))
-    jsonResp = resp.json()
-    print bcolors.WARNING + "Watson: " + bcolors.OKBLUE + "\n".join(jsonResp["response"]) + bcolors.ENDC
-    if userResponse == "bye":
-        break
+main()

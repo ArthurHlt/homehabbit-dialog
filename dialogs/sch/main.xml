@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
+    <flow>
+        <folder label="Main">
+            <output>
+                <prompt selectionType="RANDOM">
+                    <item>Hi, I'm Watson! I can help you order a pizza, what size would you like?</item>
+                </prompt>
+                <goto ref="getUserInput_2442994"/>
+            </output>
+            <output>
+                <prompt selectionType="SEQUENTIAL">
+                    <item>What size would you like?</item>
+                </prompt>
+                <getUserInput id="getUserInput_2442994">
+                    <search ref="folder_2442998"/>
+                    <default>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>I'm sorry I did not understand your question. All I can do is help you order a
+                                    pizza...
+                                </item>
+                                <item>I did not quite get that.</item>
+                                <item>I didnt grasp what you said.</item>
+                                <item>I'm not following you at the moment.</item>
+                            </prompt>
+                        </output>
+                    </default>
+                </getUserInput>
+            </output>
+        </folder>
+    </flow>
+
+</dialog>
