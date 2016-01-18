@@ -5,20 +5,15 @@
     <constants>
         <var_folder name="Home">
             <var_folder name="General" type="CONST">
-                <var name="VA" type="TAG" description="Name of the virtual agent">Peppe</var>
+                <var name="VA" type="TAG" description="Name of the virtual agent">Lisa</var>
             </var_folder>
         </var_folder>
     </constants>
     <variables>
         <var_folder name="Home">
-            <var name="topping1" type="TEXT"/>
-            <var name="topping2" type="TEXT"/>
-            <var name="topping3" type="TEXT"/>
-            <var name="topping4" type="TEXT"/>
-            <var name="sauce" type="TEXT" description="Describes the type of sauce to top a pizza with"/>
-            <var name="crust" type="TEXT"/>
-            <var name="size" type="TEXT" description="small, medium, large, or extra large"/>
-            <var name="method" type="TEXT" description="pickup or delivery"/>
+            <var name="place" type="TEXT" description="where to do the action"/>
+            <var name="action" type="TEXT" description="action on your device"/>
+            <var name="device" type="TEXT" description="device to control"/>
         </var_folder>
     </variables>
     <settings>

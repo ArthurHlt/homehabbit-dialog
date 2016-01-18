@@ -3,124 +3,85 @@
         xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
     <flow/>
     <entities>
-        <entity name="Toppings">
-            <value name="Pepperoni" value="Pepperoni">
+        <entity name="Place">
+            <value name="Kitchen" value="Kitchen">
                 <grammar>
-                    <item>roni</item>
+                    <item>tchen</item>
                 </grammar>
             </value>
-            <value name="Mushroom" value="Mushrooms">
+            <value name="Living" value="Living">
                 <grammar>
-                    <item>shrooms</item>
+                    <item>living room</item>
+                    <item>living</item>
                 </grammar>
             </value>
-            <value name="Sausages" value="Sausage"/>
-            <value name="Onions" value="Onions"/>
-            <value name="Peppers" value="Peppers">
+            <value name="Bedroom" value="Bedroom">
                 <grammar>
-                    <item>red peppers</item>
-                    <item>green peppers</item>
+                    <item>bedroom</item>
+                    <item>bedroom one</item>
                 </grammar>
             </value>
-            <value name="Anchovy" value="Anchovy">
+            <value name="Toilets" value="Toilets">
                 <grammar>
-                    <item>Chovies</item>
+                    <item>Toilet</item>
+                    <item>Toilets</item>
                 </grammar>
             </value>
-            <value name="Pineapple" value="Pineapple"/>
-            <value name="Chicken" value="Chicken"/>
-            <value name="Broccoli" value="Broccoli"/>
-            <value name="Pesto" value="Pesto"/>
-            <value name="Shrimps" value="Shrimp"/>
-            <value name="Garlic" value="Garlic"/>
-            <value name="Olive" value="Olives"/>
-            <value name="Cheese" value="Cheese">
+            <value name="Bathroom" value="Bathroom">
                 <grammar>
-                    <item>mozarella</item>
-                </grammar>
-            </value>
-            <value name="Jalapeno" value="Jalapenos"/>
-            <value name="bacon" value="bacon"/>
-            <value name="canadian bacon" value="canadian bacon">
-                <grammar>
-                    <item>ham</item>
-                </grammar>
-            </value>
-            <value name="tomatoe" value="tomatoes">
-                <grammar>
-                    <item>tomato</item>
-                </grammar>
-            </value>
-            <value name="apples" value="apples"/>
-        </entity>
-        <entity name="Crust">
-            <value name="Thin" value="Thin">
-                <grammar>
-                    <item>thin crust</item>
-                    <item>NY style</item>
-                </grammar>
-            </value>
-            <value name="Deep Dish" value="Deep Dish">
-                <grammar>
-                    <item>deep dish</item>
-                    <item>pan pizza</item>
-                </grammar>
-            </value>
-            <value name="Sicilian" value="Sicilian">
-                <grammar>
-                    <item>thick</item>
-                </grammar>
-            </value>
-            <value name="Traditional" value="Traditional"/>
-        </entity>
-        <entity name="Sauce">
-            <value name="Tomato Sauce" value="Tomato">
-                <grammar>
-                    <item>Gravy</item>
-                    <item>Red Sauce</item>
-                </grammar>
-            </value>
-            <value name="Alfredo Sauce" value="Alfredo">
-                <grammar>
-                    <item>Cheese</item>
-                    <item>White</item>
-                </grammar>
-            </value>
-            <value name="Pesto Sauce" value="Pesto Sauce">
-                <grammar>
-                    <item>Pesto</item>
+                    <item>Bath</item>
+                    <item>Bathroom</item>
                 </grammar>
             </value>
         </entity>
-        <entity name="Size">
-            <value name="small" value="Small">
+        <entity name="Device">
+            <value name="Light" value="Light">
                 <grammar>
-                    <item>sm</item>
-                    <item>smallest</item>
-                    <item>tiny</item>
-                    <item>little</item>
+                    <item>Light</item>
+                    <item>Lights</item>
+                    <item>Power</item>
                 </grammar>
             </value>
-            <value name="Medium" value="Medium">
+            <value name="Coffee" value="CoffeeMaker">
                 <grammar>
-                    <item>Med</item>
+                    <item>Coffee maker</item>
+                    <item>Coffee</item>
                 </grammar>
             </value>
-            <value name="large" value="Large">
+            <value name="Projector" value="Projector">
                 <grammar>
-                    <item>lg</item>
-                    <item>lrg</item>
-                    <item>big</item>
+                    <item>projector</item>
+                    <item>jector</item>
                 </grammar>
             </value>
-            <value name="extra large" value="extra large">
+            <value name="Tv" value="Tv">
                 <grammar>
-                    <item>xl</item>
-                    <item>xlrg</item>
-                    <item>x-large</item>
-                    <item>xtra</item>
-                    <item>huge</item>
-                    <item>biggest</item>
+                    <item>television</item>
+                    <item>tv</item>
+                </grammar>
+            </value>
+        </entity>
+        <entity name="Action">
+            <value name="On" value="On">
+                <grammar>
+                    <item>Switch On</item>
+                    <item>on</item>
+                    <item>prepare</item>
+                    <item>Turn on</item>
+                </grammar>
+            </value>
+            <value name="Off" value="Off">
+                <grammar>
+                    <item>Switch off</item>
+                    <item>off</item>
+                    <item>turn off</item>
+                    <item>stop</item>
+                </grammar>
+            </value>
+            <value name="Change" value="Change">
+                <grammar>
+                    <item>Change</item>
+                    <item>go to</item>
                 </grammar>
             </value>
         </entity>

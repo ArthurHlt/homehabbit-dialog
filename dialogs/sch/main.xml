@@ -5,7 +5,7 @@
         <folder label="Main">
             <output>
                 <prompt selectionType="RANDOM">
-                    <item>Hi, I'm Watson! I can help you order a pizza, what size would you like?</item>
+                    <item>Hi, I'm Lisa! I can help you to take care of your home let me know what you want.</item>
                 </prompt>
                 <goto ref="getUserInput_2442994"/>
             </output>

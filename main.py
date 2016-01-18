@@ -10,7 +10,7 @@ def main():
     conf = anyconfig.load('config.yml')
     bconf = bunch.bunchify(conf)
     print bconf['watson-dialog'].user
-    watsonDialogClient = Client(bconf['watson-dialog'].user, bconf['watson-dialog'].password, "dialogs/homehabbit.xml",
+    watsonDialogClient = Client(bconf['watson-dialog'].user, bconf['watson-dialog'].password, "./homehabbit.xml",
                                 "homehabbit")
     ttsWatson = TtsWatson(bconf['watson-tts'].user, bconf['watson-tts'].password, bconf['watson-tts'].voice)
     homeHabbitListener = HomeHabbitListener(watsonDialogClient, ttsWatson)
