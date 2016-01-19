@@ -1,6 +1,7 @@
+/struct.xml
 /main.xml
 /library.xml
 /global.xml
-/concepts.xml
+/concepts/concepts.xml
 /entities.xml
 /config.xml

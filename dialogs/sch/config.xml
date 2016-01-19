@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"
         xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
     <flow></flow>
-    <constants>
+    <constants xdt:Transform="Insert">
         <var_folder name="Home">
             <var_folder name="General" type="CONST">
                 <var name="VA" type="TAG" description="Name of the virtual agent">Lisa</var>
             </var_folder>
         </var_folder>
     </constants>
-    <variables>
+    <variables xdt:Transform="Insert">
         <var_folder name="Home">
             <var name="place" type="TEXT" description="where to do the action"/>
             <var name="action" type="TEXT" description="action on your device"/>
             <var name="device" type="TEXT" description="device to control"/>
         </var_folder>
     </variables>
-    <settings>
+    <settings xdt:Transform="Insert">
         <setting name="USERIDNUM" type="USER">759</setting>
         <setting name="EMAIL" type="USER"></setting>
         <setting name="PASSWORD" type="USER"></setting>
@@ -74,7 +75,7 @@
         <setting name="DNR_NODE_ID">-15</setting>
         <setting name="CLEARCACHE">sd6pprd-dfd2 sd6pprd-1e75</setting>
     </settings>
-    <specialSettings>
+    <specialSettings xdt:Transform="Insert">
         <specialSetting label="DNR Join Statement">
             <variations/>
         </specialSetting>

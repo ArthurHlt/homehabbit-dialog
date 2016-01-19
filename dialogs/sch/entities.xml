@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"
         xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
     <flow/>
-    <entities>
+    <entities xdt:Transform="Insert">
         <entity name="Place">
             <value name="Kitchen" value="Kitchen">
                 <grammar>
                     <item>tchen</item>
+                    <item>kitchen</item>
                 </grammar>
             </value>
             <value name="Living" value="Living">
@@ -62,26 +64,37 @@
             </value>
         </entity>
         <entity name="Action">
-            <value name="On" value="On">
+            <value name="Turn" value="Turn">
                 <grammar>
-                    <item>Switch On</item>
-                    <item>on</item>
+                    <item>Switch</item>
                     <item>prepare</item>
-                    <item>Turn on</item>
+                    <item>Turn</item>
+                    <item>Power</item>
                 </grammar>
             </value>
-            <value name="Off" value="Off">
+            <value name="Prepare" value="Prepare">
                 <grammar>
-                    <item>Switch off</item>
-                    <item>off</item>
-                    <item>turn off</item>
-                    <item>stop</item>
+                    <item>prepare</item>
                 </grammar>
             </value>
             <value name="Change" value="Change">
                 <grammar>
                     <item>Change</item>
                     <item>go to</item>
+                </grammar>
+            </value>
+        </entity>
+
+        <entity name="ActionValue">
+            <value name="On" value="On">
+                <grammar>
+                    <item>On</item>
+                </grammar>
+            </value>
+            <value name="Off" value="Off">
+                <grammar>
+                    <item>off</item>
+                    <item>stop</item>
                 </grammar>
             </value>
         </entity>

@@ -1,23 +1,5 @@
 #!/usr/bin/env bash
 WD=`pwd`
 concept_file="$WD/dialogs/sch/concepts.xml"
-cat << EOT > "$concept_file"
-<?xml version="1.0" encoding="UTF-8"?>
-<dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
-    <flow>
-        <folder label="Concepts">
-EOT
-FILES=$WD/dialogs/sch/concepts/*.xml
-for f in $FILES
-do
-  echo $f
-  cat $f >> "$concept_file"
-  printf "\n" >> "$concept_file"
-done
-cat << EOT >> "$concept_file"
-        </folder>
-    </flow>
-</dialog>
-EOT
+java -jar xmergel.jar -f "$WD/dialogs/sch/concepts/struct.txt" "$WD/dialogs/sch/concepts/concepts.xml"
 java -jar xmergel.jar -f "$WD/dialogs/sch/struct.txt" "$WD/homehabbit.generate.xml"

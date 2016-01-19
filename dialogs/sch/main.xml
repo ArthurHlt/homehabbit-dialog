@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"
         xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
     <flow>
-        <folder label="Main">
+        <folder label="Main" xdt:Transform="Insert">
             <output>
                 <prompt selectionType="RANDOM">
                     <item>Hi, I'm Lisa! I can help you to take care of your home let me know what you want.</item>
@@ -10,16 +11,13 @@
                 <goto ref="getUserInput_2442994"/>
             </output>
             <output>
-                <prompt selectionType="SEQUENTIAL">
-                    <item>What size would you like?</item>
-                </prompt>
                 <getUserInput id="getUserInput_2442994">
                     <search ref="folder_2442998"/>
                     <default>
                         <output>
                             <prompt selectionType="RANDOM">
-                                <item>I'm sorry I did not understand your question. All I can do is help you order a
-                                    pizza...
+                                <item>I'm sorry I did not understand your question. All I can do is help you to manage
+                                    your home...
                                 </item>
                                 <item>I did not quite get that.</item>
                                 <item>I didnt grasp what you said.</item>

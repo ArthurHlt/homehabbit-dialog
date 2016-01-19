@@ -1691,6 +1691,7 @@
             <value name="Kitchen" value="Kitchen">
                 <grammar>
                     <item>tchen</item>
+                    <item>kitchen</item>
                 </grammar>
             </value>
             <value name="Living" value="Living">
@@ -1751,6 +1752,7 @@
                     <item>Switch</item>
                     <item>prepare</item>
                     <item>Turn</item>
+                    <item>Power</item>
                 </grammar>
             </value>
             <value name="Prepare" value="Prepare">

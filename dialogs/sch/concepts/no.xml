@@ -1,42 +1,51 @@
-<concept>
-    <grammar>
-        <item>No</item>
-        <item>absolutely not</item>
-        <item>apparently not</item>
-        <item>Are not</item>
-        <item>By no means</item>
-        <item>Certainly not</item>
-        <item>Definitely not</item>
-        <item>Hardly</item>
-        <item>Heck no</item>
-        <item>Hell no</item>
-        <item>I suppose not</item>
-        <item>Negative</item>
-        <item>never</item>
-        <item>nix</item>
-        <item>no no</item>
-        <item>no no no</item>
-        <item>No not at all</item>
-        <item>No not really</item>
-        <item>No thank you</item>
-        <item>no thanks</item>
-        <item>No way</item>
-        <item>Non</item>
-        <item>None</item>
-        <item>nope</item>
-        <item>not at all</item>
-        <item>not by any means</item>
-        <item>Not completely</item>
-        <item>Not especially</item>
-        <item>Not particularly</item>
-        <item>not really</item>
-        <item>not right now</item>
-        <item>Not that I know of</item>
-        <item>of course not</item>
-        <item>please no</item>
-        <item>probably not</item>
-        <item>nopeity-nope-nope</item>
-        <item>n-n-n-no</item>
-        <item>n-o</item>
-    </grammar>
-</concept>
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"
+        xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
+    <flow>
+        <folder label="Concepts">
+            <concept xdt:Transform="Insert">
+                <grammar>
+                    <item>No</item>
+                    <item>absolutely not</item>
+                    <item>apparently not</item>
+                    <item>Are not</item>
+                    <item>By no means</item>
+                    <item>Certainly not</item>
+                    <item>Definitely not</item>
+                    <item>Hardly</item>
+                    <item>Heck no</item>
+                    <item>Hell no</item>
+                    <item>I suppose not</item>
+                    <item>Negative</item>
+                    <item>never</item>
+                    <item>nix</item>
+                    <item>no no</item>
+                    <item>no no no</item>
+                    <item>No not at all</item>
+                    <item>No not really</item>
+                    <item>No thank you</item>
+                    <item>no thanks</item>
+                    <item>No way</item>
+                    <item>Non</item>
+                    <item>None</item>
+                    <item>nope</item>
+                    <item>not at all</item>
+                    <item>not by any means</item>
+                    <item>Not completely</item>
+                    <item>Not especially</item>
+                    <item>Not particularly</item>
+                    <item>not really</item>
+                    <item>not right now</item>
+                    <item>Not that I know of</item>
+                    <item>of course not</item>
+                    <item>please no</item>
+                    <item>probably not</item>
+                    <item>nopeity-nope-nope</item>
+                    <item>n-n-n-no</item>
+                    <item>n-o</item>
+                </grammar>
+            </concept>
+        </folder>
+    </flow>
+</dialog>

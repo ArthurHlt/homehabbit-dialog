@@ -1,11 +1,21 @@
-<concept>
-    <grammar>
-        <item>Can you</item>
-        <item>Would you</item>
-        <item>I would like</item>
-        <item>Could you</item>
-        <item>you could</item>
-        <item>you would</item>
-        <item>would have</item>
-    </grammar>
-</concept>
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"
+        xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd">
+    <flow>
+        <folder label="Concepts">
+            <concept xdt:Transform="Insert">
+                <grammar>
+                    <item>Can you</item>
+                    <item>Would you</item>
+                    <item>I would like</item>
+                    <item>Could you</item>
+                    <item>you could</item>
+                    <item>you would</item>
+                    <item>would have</item>
+                    <item>is it possible</item>
+                </grammar>
+            </concept>
+        </folder>
+    </flow>
+</dialog>

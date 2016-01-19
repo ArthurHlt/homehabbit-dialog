@@ -1,9 +1,10 @@
-from tts_watson.TtsWatson import TtsWatson
-from dialog_watson_client.Client import Client
-from stt_watson.SttWatson import SttWatson
-from homehabbit_dialog.HomeHabbitListener import HomeHabbitListener
 import anyconfig
 import bunch
+from dialog_watson_client.Client import Client
+from stt_watson.SttWatson import SttWatson
+from tts_watson.TtsWatson import TtsWatson
+
+from homehabbit_dialog.HomeHabbitListener import HomeHabbitListener
 
 
 def main():
