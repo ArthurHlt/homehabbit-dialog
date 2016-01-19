@@ -35,20 +35,75 @@
                     </grammar>
                     <input>
                         <grammar>
-                            <item>$ (Action)={action} * (Device)={device} * (Place)={place}</item>
-                            <item>$ (Action)={action} (Device)={device} * (Place)={place}</item>
-                            <item>$ (Device)={device} (Action)={action} * (Place)={place}</item>
-                            <item>$ (Action)={action} * (Device)={device}</item>
-                            <item>$ (Action)={action} (Device)={device}</item>
-                            <item>$ (Device)={device} * (Action)={action}</item>
-                            <item>$ (Device)={device} (Action)={action}</item>
+                            <item>$ (Action)={action} (Device)={device} (Place)={place} * (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} (Device)={device} * (Place)={place} (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} * (Device)={device} * (Place)={place}
+                                (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} * (Device)={device} (Place)={place} *
+                                (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} (Device)={device} * (Place)={place} *
+                                (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} * (Device)={device} * (Place)={place} *
+                                (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} * (ActionValue)={actionValue} * (Device)={device} *
+                                (Place)={place}
+                            </item>
+                            <item>$ (Action)={action} (ActionValue)={actionValue} * (Device)={device} *
+                                (Place)={place}
+                            </item>
+                            <item>$ (Action)={action} (ActionValue)={actionValue} (Device)={device} * (Place)={place}
+                            </item>
+                            <item>$ (Action)={action} (ActionValue)={actionValue} * (Device)={device} *
+                                (Place)={place}
+                            </item>
+                            <item>$ (Action)={action} * (ActionValue)={actionValue} * (Device)={device} *
+                                (Place)={place}
+                            </item>
+                            <item>$ (Device)={device} (Action)={action} (ActionValue)={actionValue} * (Place)={place}
+                            </item>
+                            <item>$ (Device)={device} * (Action)={action} * (ActionValue)={actionValue} *
+                                (Place)={place}
+                            </item>
+                            <item>$ (Place)={place} * (Action)={action} * (ActionValue)={actionValue} *
+                                (Device)={device}
+                            </item>
+                            <item>$ (Action)={action} * (ActionValue)={actionValue} * (Place)={place} *
+                                (Device)={device}
+                            </item>
+
+                            <item>$ (Action)={action} * (Device)={device} * (Place)={place} *
+                                (ActionValue)={actionValue}
+                            </item>
+                            <item>$ (Action)={action} (Device)={device} * (Place)={place} *
+                                (ActionValue)={actionValue}
+                            </item>
+
+                            <item>$ (Action)={action} (ActionValue)={actionValue} * (Device)={device}</item>
+                            <item>$ (Action)={action} * (ActionValue)={actionValue} * (Device)={device}</item>
+                            <item>$ (Action)={action} (ActionValue)={actionValue} (Device)={device}</item>
+                            <item>$ (Device)={device} * (Action)={action} (ActionValue)={actionValue}</item>
+                            <item>$ (Device)={device} * (Action)={action} * (ActionValue)={actionValue}</item>
+                            <item>$ (Device)={device} (Action)={action} (ActionValue)={actionValue}</item>
+                            <item>$ (Action)={action} (Device)={device} (ActionValue)={actionValue}</item>
+                            <item>$ (Action)={action} (Device)={device} * (ActionValue)={actionValue}</item>
+                            <item>$ (Action)={action} * (Device)={device} (ActionValue)={actionValue}</item>
+                            <item>$ (Action)={action} * (Device)={device} * (ActionValue)={actionValue}</item>
                             <item>$ (Device)={device} * (Action)={action} * (Place)={place}</item>
-                            <item>$ (Place)={place} * (Action)={action} * (Device)={device}</item>
-                            <item>$ (Action)={action} * (Place)={place} * (Device)={device}</item>
+
+
+                            <item>$ (Action)={action} (Device)={device}</item>
+                            <item>$ (Action)={action} * (Device)={device}</item>
                         </grammar>
                         <action varName="action" operator="SET_TO">{action.value:main}</action>
                         <action varName="device" operator="SET_TO">{device.value:main}</action>
                         <action varName="place" operator="SET_TO">{place.value:main}</action>
+                        <action varName="actionValue" operator="SET_TO">{actionValue.value:main}</action>
                         <goto ref="profileCheck_2469744"/>
                     </input>
                 </input>
@@ -103,14 +158,14 @@
                             <item>$ Hey you</item>
                             <item>$ thought I would say hello</item>
                             <item>$ hello my friend</item>
-                            <item>$ hey Watson</item>
-                            <item>$ hello Watson</item>
-                            <item>$ hey there Watson</item>
-                            <item>$ hey Watson</item>
-                            <item>$ hello Watson</item>
-                            <item>$ hey there Watson</item>
-                            <item>$ hello my Watson</item>
-                            <item>$ hello my Watson</item>
+                            <item>$ hey Lisa</item>
+                            <item>$ hello Lisa</item>
+                            <item>$ hey there Lisa</item>
+                            <item>$ hey Lisa</item>
+                            <item>$ hello Lisa</item>
+                            <item>$ hey there Lisa</item>
+                            <item>$ hello my Lisa</item>
+                            <item>$ hello my Lisa</item>
                         </grammar>
                         <output>
                             <prompt selectionType="RANDOM">
@@ -1320,10 +1375,27 @@
                         <cond varName="device" operator="HAS_VALUE"/>
                         <cond varName="action" operator="HAS_VALUE"/>
                         <if>
+                            <cond varName="actionValue" operator="HAS_VALUE"/>
+                            <cond varName="place" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>So {device} is {action} {actionValue} for {place}.</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
                             <cond varName="place" operator="HAS_VALUE"/>
                             <output>
                                 <prompt selectionType="RANDOM">
                                     <item>So {device} is {action} for {place}.</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
+                            <cond varName="actionValue" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>So {device} is {action} {actionValue}.</item>
                                 </prompt>
                             </output>
                         </if>
@@ -1674,26 +1746,36 @@
             </value>
         </entity>
         <entity name="Action">
-            <value name="On" value="On">
+            <value name="Turn" value="Turn">
                 <grammar>
-                    <item>Switch On</item>
-                    <item>on</item>
+                    <item>Switch</item>
                     <item>prepare</item>
-                    <item>Turn on</item>
+                    <item>Turn</item>
                 </grammar>
             </value>
-            <value name="Off" value="Off">
+            <value name="Prepare" value="Prepare">
                 <grammar>
-                    <item>Switch off</item>
-                    <item>off</item>
-                    <item>turn off</item>
-                    <item>stop</item>
+                    <item>prepare</item>
                 </grammar>
             </value>
             <value name="Change" value="Change">
                 <grammar>
                     <item>Change</item>
                     <item>go to</item>
+                </grammar>
+            </value>
+        </entity>
+
+        <entity name="ActionValue">
+            <value name="On" value="On">
+                <grammar>
+                    <item>On</item>
+                </grammar>
+            </value>
+            <value name="Off" value="Off">
+                <grammar>
+                    <item>off</item>
+                    <item>stop</item>
                 </grammar>
             </value>
         </entity>
@@ -1710,6 +1792,7 @@
             <var description="where to do the action" name="place" type="TEXT"/>
             <var description="action on your device" name="action" type="TEXT"/>
             <var description="device to control" name="device" type="TEXT"/>
+            <var description="value of the action" name="actionValue" type="TEXT"/>
         </var_folder>
     </variables>
     <settings>
